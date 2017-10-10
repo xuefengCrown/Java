@@ -1,0 +1,52 @@
+
+http://jmol.sourceforge.net/
+
+store and retrieve
+？？？ Interpreted Compiler
+解释的 编译的 是什么意思？？？
+
+强类型
+
+使用java实现大部分数据结构
+http://www.keithschwarz.com/interesting/
+
+Object-oriented programming (OOP) 
+封装 encapsulation
+类和方法
+
+javadoc
+
+继承
+接口
+
+After we cover interfaces, we move on to lambda expressions, a
+concise way for expressing a block of code that can be executed at a later point
+in time. We then cover a useful technical feature of Java called inner classes.
+
+异常处理 exception handling
+
+debugging tips
+
+泛型 generic programming
+Generic programming makes your programs easier to read and safer. We show you how to use strong
+typing and remove unsightly and unsafe casts, and how to deal with the complex-
+ities that arise from the need to stay compatible with older versions of Java.
+
+collections framework 集合框架
+This chapter shows you how to take advantage of the standard collections that are prebuilt for your use.
+
+14 并发 concurrency
+Chapter 14 finishes the book with a discussion of concurrency, which enables
+you to program tasks to be done in parallel.
+
+Application Programming Interface (API)
+
+
+No programming language as powerful as Java is easy. You always have to dis-
+tinguish between how easy it is to write toy programs and how hard it is to do
+serious work. Also, consider that only seven chapters in this book discuss the Java
+language. The remaining chapters of both volumes show how to put the language
+to work, using the Java libraries. The Java libraries contain thousands of classes
+and interfaces and tens of thousands of functions. Luckily, you do not need to
+know every one of them, but you do need to know surprisingly many to use Java
+for anything realistic.
