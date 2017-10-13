@@ -1,0 +1,11 @@
+# 探索String类
+
+1 String 类型的变量是 immutable（不可变的）
+
+2 使用StringBuffer
+
+3 equals() charAt() length()
+
+4 String[] str = {"one", "two", "three"};
+
+5 命令行参数 （以字符串形式传递）
