@@ -1,0 +1,48 @@
+# 递归定义 list
+; A List-of-names is one of: 
+; – '()
+; – (cons any List-of-names)
+; interpretation a list of invitees, by last name
+
+a self-referential definition
+
+
+Fortunately a list may contain items other than atomic values; 
+indeed, lists may contain whatever values we want, especially structures.
+
+While this representation is still simplistic, it is just enough of an additional challenge 
+because it forces us to formulate a data definition for lists that contain structures:
+; Low (short for list of works) is one of: 
+; – '()
+; – (cons Work Low)
+; interpretation an instance of Low represents the 
+; hours worked for a number of employees
+
+Here are three elements of Low:
+'()
+(cons (make-work "Robby" 11.95 39)
+      '())
+(cons (make-work "Matthew" 12.95 45)
+      (cons (make-work "Robby" 11.95 39)
+            '()))
+
+10.3 Lists in Lists, Files
+
+Functions and Programs introduces read-file, a function for reading
+(Add (require 2htdp/batch-io) to your definitions area. 
+an entire text file as a string. In other words, the creator of read-file chose to represent text files 
+as strings, and the function creates the data representation for specific files (specified by a name). 
+Text files aren’t plain long texts or strings, however. They are organized into lines and words, rows and cells, 
+and many other ways. In short, representing the content of a file as a plain string might work on rare occasions 
+but is usually a bad choice.
+
+Exercise 176. Mathematics teachers may have introduced you to matrix calculations by now. 
+In principle, matrix just means rectangle of numbers. Here is one possible data representation for matrices:
+; A Matrix is one of: 
+;  – (cons Row '())
+;  – (cons Row Matrix)
+; constraint all rows in matrix are of the same length
+ 
+; A Row is one of: 
+;  – '() 
+;  – (cons Number Row)
