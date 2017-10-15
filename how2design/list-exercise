@@ -1,0 +1,56 @@
+Exercise 181. Use list to construct the equivalent of these lists:
+(cons "a" (cons "b" (cons "c" (cons "d" '()))))
+
+(cons (cons 1 (cons 2 '())) '())
+
+(cons "a" (cons (cons 1 '()) (cons #false '())))
+
+(cons (cons "a" (cons 2 '())) (cons "hello" '()))
+
+Also try your hand at this one:
+(cons (cons 1 (cons 2 '()))
+      (cons (cons 2 '())
+            '()))
+Start by determining how many items each list and each nested list contains. Use check-expect to express your answers; 
+this ensures that your abbreviations are really the same as the long-hand. 
+
+Exercise 182. Use cons and '() to form the equivalent of these lists:
+(list 0 1 2 3 4 5)
+
+(list (list "he" 0) (list "it" 1) (list "lui" 14))
+
+(list 1 (list 1 2) (list 1 2 3))
+
+Use check-expect to express your answers. 
+
+Exercise 183. On some occasions lists are formed with cons and list.
+(cons "a" (list 0 #false))
+
+(list (cons 1 (cons 13 '())))
+
+(cons (list 1 (list 13 '())) '())
+
+(list '() '() (cons 1 '()))
+
+(cons "a" (cons (list 1) (list #false '())))
+
+Reformulate each of the following expressions using only cons or only list. Use check-expect to check your answers. 
+
+Exercise 184. Determine the values of the following expressions:
+(list (string=? "a" "b") #false)
+
+(list (+ 10 20) (* 10 20) (/ 10 20))
+
+(list "dana" "jane" "mary" "laura")
+
+Use check-expect to express your answers. 
+
+Exercise 185. You know about first and rest from BSL, but BSL+ comes with even more selectors than that. 
+Determine the values of the following expressions:
+(first (list 1 2 3))
+
+(rest (list 1 2 3))
+
+(second (list 1 2 3))
+
+Find out from the documentation whether third and fourth exist. 
