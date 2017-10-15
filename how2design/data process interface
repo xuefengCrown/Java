@@ -1,0 +1,24 @@
+# 关于数据处理接口（协议和接口的重要性）
+
+1 Linux 下的字典文件 是 List-of-strings
+-------------------------------------------------
+; On OS X: 
+(define DICTIONARY-LOCATION "/usr/share/dict/words")
+; On LINUX: /usr/share/dict/words or /var/lib/dict/words
+; On WINDOWS: borrow the word file from your Linux friend
+ 
+; A Dictionary is a List-of-strings.
+(define DICTIONARY-AS-LIST (read-lines DICTIONARY-LOCATION))
+
+-------------------------------------------------
+
+2 iTunes 的数据文件是 XML
+Apple’s iTunes software is widely used to collect music, videos, TV shows, and so on. 
+You may wish to analyze the information that your iTunes application gathers. 
+It is actually quite easy to extract its database. 
+Select the application’s File menu, choose Library and then Export—and voilà, 
+you can export a so-called XML representation of the iTunes information.
+
+3 wiki对外接口，Flickr 对外数据接口的一部分是 json
+
+4 网页的数据格式是 HTML
