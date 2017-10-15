@@ -1,0 +1,30 @@
+复制代码就是复制错误！
+Copying code, however, means that programmers copy mistakes and the same 
+fix may have to be applied to many copies.
+
+1 functional abstraction
+Another important aspect of abstraction is that you now have a single point of control over all these functions. 
+If it turns out that the abstract function contains a mistake, fixing its definition suffices to fix all other definitions. 
+
+Similarly, if you figure out how to accelerate the computations of the abstract function or how to reduce its energy consumption, 
+then all functions defined in terms of this function are improved without any extra effort.
+
+
+14.3 Similarities in Data Definitions
+java中通过泛型来解决这个问题
+
+Now take a close look at the following two data definitions:
+; A Lon (List-of-numbers) 
+; is one of:
+; – '() 
+; – (cons Number Lon) 
+  
+; A Los (List-of-String) 
+; is one of: 
+; – '() 
+; – (cons String Los) 
+------------------------------------
+; A [List-of ITEM] is one of: 
+; – '() 
+; – (cons ITEM [List-of ITEM])
+------------------------------------
