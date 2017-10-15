@@ -1,0 +1,9 @@
+
+8.6 Restrictions and Limitations
+8.6 泛型使用的限制以及注意事项
+下面讨论泛型使用限制。大部分都是类型擦除（type erasure）造成的。
+
+8.6.1 Type Parameters Cannot Be Instantiated with Primitive Types
+You cannot substitute a primitive type for a type parameter. Thus, there is no
+Pair<double> , only  Pair<Double> . The reason is, of course, type erasure. After erasure,
+the  Pair class has fields of type  Object , and you can’t use them to store  double values.
