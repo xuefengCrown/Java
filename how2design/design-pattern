@@ -1,0 +1,20 @@
+# 如何设计和实现
+# 以sort函数为例，展示过程
+
+1 从最简单情况开始，如排序整数序列，而后扩展到其他类型
+2 排序意味着什么？
+Sorting means rearranging a bunch of numbers.
+
+# 数据类型的转换 input data type——>output type
+This restatement implies a natural data definition for the inputs and outputs of the function and thus its signature.
+
+# 主函数的签名，主要包括输入和输出的数据类型
+Given that we have a definition for List-of-numbers, the first step is easy:
+----------------------------------------
+; List-of-numbers -> List-of-numbers 
+; produces a sorted version of alon
+(define (sort> alon)
+  alon)
+----------------------------------------
+
+# 给出几个例子（典型，考虑不同的输入类型，分支）
