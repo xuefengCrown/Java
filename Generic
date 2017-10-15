@@ -1,0 +1,24 @@
+
+Generic classes are desirable because they let you write code that is safer and
+easier to read than code littered with  Object variables and casts. Generics are
+particularly useful for collection classes, such as the ubiquitous  ArrayList.
+
+8.1.1 The Advantage of Type Parameters
+Before generic classes were added to Java, generic programming was achieved
+with inheritance. The  ArrayList class simply maintained an array of  Object references:
+public class ArrayList // before generic classes
+{
+  private Object[] elementData;
+  . . .
+  public Object get(int i) { . . . }
+  public void add(Object o) { . . . }
+}
+This approach has two problems. A cast is necessary whenever you retrieve a
+value:
+ArrayList files = new ArrayList();
+. . .
+String filename = (String) files.get(0);
+Moreover, there is no error checking. You can add values of any class:
+files.add(new File(". . ."));
+This call compiles and runs without error. Elsewhere, casting the result of  get to
+a  String will cause an error.
