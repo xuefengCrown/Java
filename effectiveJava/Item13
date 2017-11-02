@@ -1,0 +1,18 @@
+# Item 13: Minimize the accessibility of classes and members
+
+信息封装的重要在于：解除模块之间的耦合。允许模块独立开发，测试，优化，使用，理解和修改。
+Information hiding is important for many reasons, most of which stem from
+the fact that it decouples the modules that comprise a system, allowing them to be
+developed, tested, optimized, used, understood, and modified in isolation.
+
+并行开发
+
+提高软件的可复用性
+
+public final修饰数组，数组名不可变，但是数组内容是可以被修改的。
+Note that a nonzero-length array is always mutable, so it is wrong for a class
+to have a public static final array field, or an accessor that returns such a
+field. If a class has such a field or accessor, clients will be able to modify the con-
+tents of the array. This is a frequent source of security holes:
+// Potential security hole!
+public static final Thing[] VALUES = { ... };
