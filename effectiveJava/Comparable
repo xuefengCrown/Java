@@ -1,0 +1,22 @@
+# 12 考虑实现Comparable接口
+By implementing  Comparable , you allow your class to interoperate with all of
+the many generic algorithms and collection implementations that depend on this
+interface.
+
+public interface Comparable<T>{
+  int compareTo(T t);
+}
+
+compareTo 方法的通用协定
+The general contract of the  compareTo method is similar to that of  equals :
+Compares this object with the specified object for order. Returns a negative in-
+teger, zero, or a positive integer as this object is less than, equal to, or greater
+than the specified object. Throws  ClassCastException if the specified ob-
+ject’s type prevents it from being compared to this object.
+
+
+还有个重要接口：Comparator
+
+
+
+
