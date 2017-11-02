@@ -1,0 +1,74 @@
+# 使可变性最小化
+
+public Complex add(Complex c) {
+  return new Complex(re + c.re, im + c.im);
+}
+public Complex subtract(Complex c) {
+  return new Complex(re - c.re, im - c.im);
+}
+public Complex multiply(Complex c) {
+  return new Complex(re * c.re - im * c.im,
+                      re * c.im + im * c.re);
+}
+public Complex divide(Complex c) {
+  double tmp = c.re * c.re + c.im * c.im;
+  return new Complex((re * c.re + im * c.im) / tmp,
+                    (im * c.re - re * c.im) / tmp);
+}
+
+函数式的
+
+过程的
+命令式的
+
+Notice how the arithmetic operations create and return a new  Complex instance rather than 
+modifying this instance. This pattern is used in most nontrivial[重要的] immutable classes. It is known as
+the functional approach because methods return the result of applying a function
+to their operand[操作对象] without modifying it. Contrast this to the more common procedural[过程的] or
+imperative[命令式的] approach in which methods apply a procedure to their operand, causing its state to change.
+
+
+# 不可变对象本质上是线程安全的，是不需要同步的。
+Immutable objects are inherently thread-safe; they require no synchronization.
+
+Therefore, immutable objects can be shared freely. Immutable classes should
+take advantage of this by encouraging clients to reuse existing instances wherever
+possible. One easy way to do this is to provide public static final constants for fre-
+quently used values. For example, the  Complex class might provide these con-
+stants:
+public static final Complex ZERO = new Complex(0, 0);
+public static final Complex ONE = new Complex(1, 0);
+public static final Complex I = new Complex(0, 1);
+
+This approach can be taken one step further. An immutable class can provide
+static factories (Item 1) that cache frequently requested instances to avoid creating
+new instances when existing ones would do. All the boxed primitive classes and
+BigInteger do this. Using such static factories causes clients to share instances
+instead of creating new ones, reducing memory footprint and garbage collection
+costs. Opting for static factories in place of public constructors when designing a
+new class gives you the flexibility to add caching later, without modifying clients.
+
+A consequence of the fact that immutable objects can be shared freely is that
+you never have to make defensive copies (Item 39). In fact, you never have to
+make any copies at all because the copies would be forever equivalent to the orig-
+inals. Therefore, you need not and should not provide a  clone method or copy
+constructor (Item 11) on an immutable class. 
+
+# 不可变对象不利之处
+The only real disadvantage of immutable classes is that they require a
+separate object for each distinct value. Creating these objects can be costly,
+especially if they are large. For example, suppose that you have a million-bit  Big-
+Integer and you want to change its low-order bit:
+  BigInteger moby = ...;
+  moby = moby.flipBit(0);
+The flipBit method creates a new  BigInteger instance, also a million bits long,
+that differs from the original in only one bit. The operation requires time and
+space proportional to the size of the  BigInteger . Contrast this to
+java.util.BitSet . Like  BigInteger , BitSet represents an arbitrarily long
+sequence of bits, but unlike  BigInteger , BitSet is mutable. The  BitSet class
+provides a method that allows you to change the state of a single bit of a million-
+bit instance in constant time.
+
+# 可变配套类
+String  StringBuilder
+
