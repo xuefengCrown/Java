@@ -1,0 +1,34 @@
+# 用函数对象表示策略
+
+函数指针
+代理 delegate
+lambda表达式
+
+scheme中，函数作为参数
+c语言中，函数指针
+
+？？
+当一个具体策略是设计用来重复使用的时候，它的类通常就要被实现为私有的
+静态成员类，并通过公有的静态final域被导出，其类型为该策略接口。
+
+As is typical for concrete strategy classes, the  StringLengthComparator
+class is stateless: it has no fields, hence all instances of the class are functionally
+equivalent. Thus it should be a singleton to save on unnecessary object creation
+costs (Item 3, Item 5):
+（无状态的类：没有域，所以该类的所有实例在功能上是等价的。它应该是单例的，以节省对象创建的消耗。）
+
+如此说来，虽然实例对象只有一个，但函数（代码）是可以复用的。
+本来，一个对象的方法就是可以不断调用的，互相之间不影响（无共享变量时）。
+
+要想搞清楚这些，需要了解更多细节。关于系统，编程语言等等。
+  class StringLengthComparator {
+    private StringLengthComparator() { }
+    public static final StringLengthComparator
+              INSTANCE = new StringLengthComparator();
+    public int compare(String s1, String s2) {
+      return s1.length() - s2.length();
+    }
+  }
+
+
+
